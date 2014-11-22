@@ -1,0 +1,15 @@
+  apply plugin: 'java'
+
+  repositories{
+    mavenCentral()
+  }
+
+  dependencies{
+    testCompile 'junit:junit:4.+'
+  }
+
+  task hello {
+    doLast {
+      println 'Hello, this project to Weslley Gabanela with Java and Gradle!'
+    }
+  }
