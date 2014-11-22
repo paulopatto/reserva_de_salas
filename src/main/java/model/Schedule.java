@@ -1,4 +1,4 @@
-package gaba.model;
+package model;
 ///   vim: ft=java
 
 import java.util.Date;
