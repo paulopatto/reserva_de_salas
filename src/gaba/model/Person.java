@@ -1,10 +1,14 @@
-class Person{
+package gaba.model;
+
+///   vim: ft=java
+public abstract class Person{
   private int id;
-  private String nome;
+  private String name;
   private String email;
   private String mobile;
 
   public int getId(){ return this.id; }
+
   public void setName(String name){ this.name = name;}
   public String getName(){ return this.name; }
 

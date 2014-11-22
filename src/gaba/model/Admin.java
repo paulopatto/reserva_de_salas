@@ -1,3 +1,6 @@
+package gaba.model;
+///   vim: ft=java
+
 class Admin extends Person{
 
   public boolean verifyPayment(int schedule_id){

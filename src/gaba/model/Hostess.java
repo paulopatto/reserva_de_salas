@@ -1,8 +1,11 @@
-class Costumer extends Person {
+package gaba.model;
+
+///   vim: ft=java
+class Hostess extends Person {
 
   private IBook book;
 
-  public Costumer(IBook book){
+  public Hostess(IBook book){
     this.book = book;
   }
 
@@ -17,6 +20,4 @@ class Costumer extends Person {
   public verify(int room_id){
     /// code
   }
-
-  public pay(){}
 }

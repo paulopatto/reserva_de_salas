@@ -1,8 +1,11 @@
-class Hostess extends Person {
+package gaba.model;
+
+///   vim: ft=java
+class Costumer extends Person {
 
   private IBook book;
 
-  public Hostess(IBook book){
+  public Costumer(IBook book){
     this.book = book;
   }
 
