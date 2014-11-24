@@ -1,1 +1,0 @@
-/Users/paulopatto/Code/gaba/lib/gradle-2.2/bin/gradle.bat
