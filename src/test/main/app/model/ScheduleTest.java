@@ -1,4 +1,4 @@
-package model;
+package app.model;
 
 /// vim: ft=java
 import org.junit.Test;
@@ -7,6 +7,6 @@ public class ScheduleTest {
 
   @Test
   public void thisAlwaysPasses(){
-
+    assertEqual(true, true);
   }
 }
