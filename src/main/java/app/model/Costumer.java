@@ -3,7 +3,7 @@ package app.model;
 ///   vim: ft=java
 class Costumer extends Person {
 
-  private BookBehaviour book;
+private BookBehaviour book;
 
   public Costumer(){
     this.book = new InternetBookRoom() ;

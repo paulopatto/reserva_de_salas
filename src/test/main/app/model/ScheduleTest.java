@@ -7,6 +7,6 @@ public class ScheduleTest {
 
   @Test
   public void thisAlwaysPasses(){
-    assertEqual(true, true);
+    assertEquals(true, true);
   }
 }
