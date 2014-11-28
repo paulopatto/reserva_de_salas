@@ -1,7 +1,7 @@
-package gaba.model;
+package app.model;
 
 ///   vim: ft=java
-public abstract class Person{
+public abstract class Person {
   private int id;
   private String name;
   private String email;
