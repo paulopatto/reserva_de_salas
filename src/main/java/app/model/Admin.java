@@ -1,5 +1,7 @@
 package app.model;
 ///   vim: ft=java
+import java.util.List;
+import java.util.ArrayList;
 
 public class Admin extends Person{
 
@@ -14,4 +16,5 @@ public class Admin extends Person{
     Schedule s = Schedule.find(scheduleId);
     s.setStatus((boolean) status);
   }
+
 }
