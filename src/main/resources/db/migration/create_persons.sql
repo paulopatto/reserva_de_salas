@@ -3,5 +3,7 @@ CREATE TABLE `persons` (
   name    text not null,
   email   text not null,
   mobile  text not null,
-  type    varchar(15) check (type in ('Admin', 'Hostess', 'Costumer'))
+  type    varchar(15) check (type in ('Admin', 'Hostess', 'Costumer')),
+  created_at datetime,
+  updated_at datetime
 );

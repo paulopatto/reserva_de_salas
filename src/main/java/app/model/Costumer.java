@@ -6,6 +6,7 @@ class Costumer extends Person {
 private BookBehaviour book;
 
   public Costumer(){
+    this.type = "Costumer";
     this.book = new InternetBookRoom() ;
   }
 

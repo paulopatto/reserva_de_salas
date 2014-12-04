@@ -1,9 +1,9 @@
 package app.model;
 ///   vim: ft=java
-import java.util.List;
-import java.util.ArrayList;
 
 public class Admin extends Person{
+	
+	public Admin(){ this.type = "Admin"; }
 
   public boolean verifyPayment(int scheduleId){
     /// Procurar o Schedule

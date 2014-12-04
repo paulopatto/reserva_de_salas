@@ -1,30 +1,38 @@
 package app.model;
 ///   vim: ft=java
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-public abstract class Person {
+@Entity
+@Table(name="persons")
+public abstract class Person extends Base {
 
   @Id
   @GeneratedValue
-  private Long id;
+  protected Long id;
 
   @Column(name="name")
-  private String name;
+  protected String name;
 
   @Column(name="email")
-  private String email;
+  protected String email;
 
   @Column(name="mobile")
-  private String mobile;
+  protected String mobile;
+  
+  @Column(name="type")
+  protected String type;
 
-  private Date createdAt;
-  private Date updatedAt;
+  @Column(name="created_at")
+  protected Timestamp createdAt;
+  
+  @Column(name="updated_at")
+  protected Timestamp updatedAt;
 
   public Long getId(){ return this.id; }
 
@@ -37,6 +45,6 @@ public abstract class Person {
   public void setMobile(String mobile){ this.mobile = mobile;}
   public String getMobile(){ return this.mobile; }
 
-  public Date getCreatedAt(){ return this.createdAt; }
-  public date getUpdatedAt(){ return this.updatedAt; }
+  public Timestamp getCreatedAt(){ return this.createdAt; }
+  public Timestamp getUpdatedAt(){ return this.updatedAt; }
 }

@@ -26,6 +26,6 @@ dependencies {
 
 flyway {
   url = 'jdbc:h2:file:database/development'
-  user = 'sa'
-  passweord = 'sa'
+  // user = 'sa'
+  // password = 'sa'
 }

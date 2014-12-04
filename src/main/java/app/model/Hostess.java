@@ -6,6 +6,7 @@ class Hostess extends Person {
   private BookBehaviour book;
 
   public Hostess(){
+    this.type = "Hostess";
     this.book = new TelephoneBookRoom() ;
   }
   public void bookRoom(Schedule request){
