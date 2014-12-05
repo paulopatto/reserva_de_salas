@@ -27,6 +27,8 @@ dependencies {
   compile group: 'org.hibernate', name: 'hibernate-core', version: '4.3.7.Final'
 }
 
+httpPort=3000
+
 flyway {
   url = 'jdbc:h2:file:database/development'
   // user = 'sa'

@@ -1,0 +1,1 @@
+VEJA https://github.com/angryziber/simple-java/blob/master/webapp/WEB-INF/jetty-web.xml
