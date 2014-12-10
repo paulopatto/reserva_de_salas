@@ -8,10 +8,8 @@ public class Application {
   public static void main(String[] args){
     System.out.println("Application bootstrap");
 
-    Room r = new Room();
-    
-    r.setName("Teste");
-    r = (Room) r.save();
-    
+    Room.create("Verão");
+    System.out.println("Gravado");
+    System.exit(0);
   }
 }

@@ -8,6 +8,7 @@ public class HibernateUtil {
   public static SessionFactory getSessionFactory(){
     return new AnnotationConfiguration().configure().buildSessionFactory();
   }
+
   public static Session getSession(){
 	  return getSessionFactory().openSession();
   }
