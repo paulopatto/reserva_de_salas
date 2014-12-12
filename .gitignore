@@ -1,8 +1,6 @@
 .*.sw?
 .DS_Store
 .class
-lib/**/
 build/
 .gradle/
 /bin/
-/.nb-gradle/private/

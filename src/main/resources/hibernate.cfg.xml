@@ -23,5 +23,6 @@
 
     <mapping class="app.model.Room"/>
     <mapping class="app.model.Person"/>
+
   </session-factory>
 </hibernate-configuration>

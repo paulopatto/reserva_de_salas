@@ -2,16 +2,20 @@ package app.model;
 ///   vim: ft=java
 
 import java.sql.Timestamp;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.swing.JOptionPane;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 @Entity
 @Table(name = "people")
-public abstract class Person extends Base {
+public class Person {
     
     @Id
     @GeneratedValue
@@ -37,6 +41,13 @@ public abstract class Person extends Base {
 
     @Column(name = "updated_at")
     protected Timestamp updatedAt;
+
+    private Person(String name, String email, String mobile, String password) {
+        this.name = name;
+        this.email = email;
+        this.mobile = mobile;
+        this.password = password;
+    }
 
 
     public Long getId() {
@@ -83,8 +94,10 @@ public abstract class Person extends Base {
         return this.type;
     }
     
-    protected static void create(String name, String email, String mobile, String password, String type){
-        Person person = new Costumer(name, email, mobile, password);
+    public String getPassword() { return this.password; }
+    
+    public static void create(String name, String email, String mobile, String password, String type){
+        Person person = new Person(name, email, mobile, password);
         person.setType(type);
         
         Session session = HibernateUtil.getSession();
@@ -94,19 +107,37 @@ public abstract class Person extends Base {
             session.save(person);
             session.getTransaction().commit();
         }
-        catch(Exception e){ e.printStackTrace(); }
+        catch(Exception ex){ 
+            Logger.getLogger(Person.class.getName())
+                .log(Level.SEVERE, null, ex); 
+        }
     }
     
-    protected static void create(Person person, String type){
-        person.setType(type);
-        
-        Session session = HibernateUtil.getSession();
-        
+    public static Person login(String email, String password){
+        Person p = null;
         try{
-            session.beginTransaction();
-            session.save(person);
-            session.getTransaction().commit();
+            System.out.println("LOGIN: " + email);
+            Conexao c = new Conexao();
+            c.conecta(); 
+            c.executeSQL("select * from people where email = '" + email + "'");
+            
         }
-        catch(Exception e){ e.printStackTrace(); }
+        catch(Exception e){
+            Logger.getLogger(Person.class.getName())
+                    .log(Level.SEVERE, null, "[Login] Erro de tentativa para login com <"+email+">.");
+            
+            ///TODO: Passar para validação na camada de forms
+            JOptionPane.showMessageDialog(null,"O programa será fechado!\ne-mail não encontrado","Erro de login",JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+            System.exit(1);
+        }
+        
+        if( !(p.getPassword().equals(password)) ){
+            ///TODO: Passar para validação na camada de forms
+            JOptionPane.showMessageDialog(null,"O programa será fechado!\nsenha inválida","Erro de login",JOptionPane.ERROR_MESSAGE);
+            System.exit(1);
+        }
+        
+        return p;
     }
 }

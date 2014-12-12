@@ -1,5 +1,10 @@
 package app.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -23,6 +28,11 @@ public class Room extends Base {
         this.name = label;
     }
     
+    public void setId(int id) {
+        this.id = id;
+    }
+    public int getId(){ return this.id; }
+    
     public String getName() {
         return name;
     }
@@ -31,9 +41,40 @@ public class Room extends Base {
         this.name = name;
     }
 
-    public static List<Room> all() {
-        List<Room> results = getSession().createQuery("from rooms").list();
-        return results;
+    public static List<Room> all() throws SQLException {
+        Connection connection = CriaConexao.getConexao();
+        String sql = "SELECT * FROM rooms" ;
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        
+        ArrayList<Room> rooms = new ArrayList<Room>();
+        
+        while (rs.next()) {
+            Room room = new Room(rs.getString("name"));
+            room.setId(rs.getInt("id"));
+            
+            rooms.add(room);
+        }
+
+        return rooms;
+    }
+    
+    public static List<Room> findById(int id) throws SQLException{
+        Connection connection = CriaConexao.getConexao();
+        String sql = "SELECT * FROM rooms WHERE id = '" + id + "' ORDER BY id" ;
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        
+        ArrayList<Room> rooms = new ArrayList<Room>();
+        
+        while (rs.next()) {
+            Room room = new Room(rs.getString("name"));
+            room.setId(rs.getInt("id"));
+            
+            rooms.add(room);
+        }
+
+        return rooms;
     }
     
     public static void create(String label){
@@ -49,4 +90,6 @@ public class Room extends Base {
             e.printStackTrace();
         }
     }
+
+    
 }

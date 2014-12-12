@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 
+/// @deprecated
 public abstract class Base {
 	
 
