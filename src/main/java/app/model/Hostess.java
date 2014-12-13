@@ -1,7 +1,11 @@
 package app.model;
 ///   vim: ft=java
 
-class Hostess extends Person {
+import java.sql.SQLException;
+import java.util.List;
+
+
+public class Hostess extends Person {
 
   private BookBehaviour book;
 
@@ -14,4 +18,11 @@ class Hostess extends Person {
   }
   public void cancelBook(int schedule_id){ }
   public void verify(Schedule request){ }
+  
+  public static void create(String name, String email, String mobile, String password) {
+        Person.create(name, email, mobile, password, "Hostess");
+    }
+  public static List<Hostess> all() throws SQLException{
+        return Person._all("Hostess");
+    }
 }
