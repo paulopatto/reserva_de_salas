@@ -1,4 +1,4 @@
-CREATE ROLE groom WITH createdb login encrypted password 'gaba';
+CREATE ROLE groom WITH createdb login superuser encrypted password 'gaba';
 
 CREATE DATABASE groom owner groom;
 
