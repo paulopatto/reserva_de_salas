@@ -1,8 +1,10 @@
-CREATE DATABASE groom ;
-
 CREATE ROLE groom WITH createdb login encrypted password 'gaba';
 
-CREATE TABLE people owner groom (
+CREATE DATABASE groom owner groom;
+
+\connect groom;
+
+CREATE TABLE people (
 	id SERIAL PRIMARY KEY NOT NULL,
 	name varchar(100),
 	email varchar(70),
@@ -14,18 +16,18 @@ CREATE TABLE people owner groom (
   CHECK(type IN ('Costumer', 'Hostess', 'Admin', 'Guest'))
 );
 
-CREATE TABLE rooms owner groom (
+CREATE TABLE rooms (
 	id SERIAL PRIMARY KEY NOT NULL,
 	label varchar(140),
 	created_at timestamp DEFAULT localtimestamp,
 	updated_at timestamp DEFAULT localtimestamp
 );
 
-CREATE TABLE schedules owner groom (
+CREATE TABLE schedules (
 	id SERIAL PRIMARY KEY NOT NULL,
 	status        boolean,
-	input datetime   NOT NULL,
-	output datetime  NOT NULL,
+	input  timestamp  NOT NULL,
+	output timestamp  NOT NULL,
 	person_id     integer,
 	room_id       integer,
 	created_at timestamp DEFAULT localtimestamp,
