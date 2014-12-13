@@ -18,7 +18,7 @@ CREATE TABLE people (
 
 CREATE TABLE rooms (
 	id SERIAL PRIMARY KEY NOT NULL,
-	label varchar(140),
+	name varchar(140),
 	created_at timestamp DEFAULT localtimestamp,
 	updated_at timestamp DEFAULT localtimestamp
 );
@@ -36,3 +36,11 @@ CREATE TABLE schedules (
   FOREIGN KEY(room_id) REFERENCES rooms(id)
 );
 
+
+INSERT INTO people(name, email, password, type)  VALUES('Administrador', 'root', 'root', 'Admin');
+INSERT INTO people(name, email, password, type)  VALUES('Atendente', 'h', 'h', 'Hostess');
+INSERT INTO people(name, email, password, type)  VALUES('Usuário de Testes', 'user', 'user', 'Costumer');
+
+INSERT INTO rooms(name) VALUES('Belo Horizonte');
+INSERT INTO rooms(name) VALUES('Natal');
+INSERT INTO rooms(name) VALUES('Florianópolis');
