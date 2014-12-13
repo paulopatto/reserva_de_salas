@@ -241,19 +241,20 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jBCadSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadSalaActionPerformed
         new CadastroDeSala().show();
     }//GEN-LAST:event_jBCadSalaActionPerformed
-
+/*
     private void jBCadLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadLabActionPerformed
         new CadastroDeLaboratório().show();
     }//GEN-LAST:event_jBCadLabActionPerformed
-
+*/
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
-
+/*
     private void jBCadEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadEquipamentoActionPerformed
         new CadastroDeEquipamento().show();
     }//GEN-LAST:event_jBCadEquipamentoActionPerformed
-
+*/
+    
     private void jMenuCadUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCadUsuarioMouseClicked
 
         new CadastroDeSolicitante().show();
@@ -262,11 +263,11 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jMenuSalaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalaMouseClicked
         new CadastroDeSala().show();
     }//GEN-LAST:event_jMenuSalaMouseClicked
-
+/*
     private void jMenuEquipamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEquipamentoMouseClicked
         new CadastroDeEquipamento().setVisible(true);
     }//GEN-LAST:event_jMenuEquipamentoMouseClicked
-
+*/
     private void jMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMouseClicked
         System.exit(0);
     }//GEN-LAST:event_jMenuSairMouseClicked
@@ -274,28 +275,28 @@ public class TelaInicial extends javax.swing.JFrame {
     private void jMenuSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalaActionPerformed
         new CadastroDeSala().show();
     }//GEN-LAST:event_jMenuSalaActionPerformed
-
+/*
     private void jMenuEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEquipamentoActionPerformed
         new CadastroDeEquipamento().show();
     }//GEN-LAST:event_jMenuEquipamentoActionPerformed
-
+*/
     private void jMenuCadUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadUsuarioActionPerformed
         new CadastroDeSolicitante().show();
     }//GEN-LAST:event_jMenuCadUsuarioActionPerformed
-
+/*
     private void jMenuLaboratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLaboratorioActionPerformed
         new CadastroDeLaboratório().show();
     }//GEN-LAST:event_jMenuLaboratorioActionPerformed
-
+*/
     private void jBCSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCSalaActionPerformed
         new PesquisaSala().show();
     }//GEN-LAST:event_jBCSalaActionPerformed
-
+/*
     private void jBCLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCLabActionPerformed
         new PesquisaLaboratorio().show();
     
     }//GEN-LAST:event_jBCLabActionPerformed
-
+*/
     /**
      * @param args the command line arguments
      */
