@@ -77,6 +77,23 @@ public class Room extends Base {
         return rooms;
     }
     
+    public static List<Room> findByName(String name) throws SQLException{
+        Connection connection = CriaConexao.getConexao();
+        String sql = "SELECT * FROM rooms WHERE name like '%" + name + "%' ORDER BY name" ;
+        PreparedStatement stmt = connection.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        
+        ArrayList<Room> rooms = new ArrayList<Room>();
+        
+        while (rs.next()) {
+            Room room = new Room(rs.getString("name"));
+            room.setId(rs.getInt("id"));
+            rooms.add(room);
+        }
+
+        return rooms;
+    }
+    
     public static void create(String label){
         Session session = HibernateUtil.getSession();
         Room room = new Room(label);

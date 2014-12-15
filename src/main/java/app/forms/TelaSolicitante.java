@@ -19,22 +19,13 @@ public class TelaSolicitante extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jBCSala = new javax.swing.JButton();
-        jBCLab = new javax.swing.JButton();
         jBCancelSolic = new javax.swing.JButton();
-        jBCancelSala = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuSala = new javax.swing.JMenuItem();
-        jMenuLaboratorio = new javax.swing.JMenuItem();
-        jMenuEquipamento = new javax.swing.JMenuItem();
-        jMenuCadUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuPesquisar = new javax.swing.JMenu();
         jMenuPesqSala = new javax.swing.JMenuItem();
-        jMenuPesqLab = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
         jMenuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -49,24 +40,10 @@ public class TelaSolicitante extends javax.swing.JFrame {
             }
         });
 
-        jBCLab.setText("Consultar Laboratório");
-        jBCLab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCLabActionPerformed(evt);
-            }
-        });
-
         jBCancelSolic.setText("Cancelar Solicitação");
         jBCancelSolic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCancelSolicActionPerformed(evt);
-            }
-        });
-
-        jBCancelSala.setText("Cancelar Reserva");
-        jBCancelSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelSalaActionPerformed(evt);
             }
         });
 
@@ -76,83 +53,19 @@ public class TelaSolicitante extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jBCancelSolic, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                    .addComponent(jBCSala, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jBCancelSala, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBCLab, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE))
-                .addGap(46, 46, 46))
+                    .addComponent(jBCSala, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jBCancelSolic, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE))
+                .addContainerGap())
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBCLab, jBCSala});
-
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCSala, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBCLab, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCancelSolic, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBCancelSala, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jBCSala, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jBCancelSolic, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Documentos\\UNB\\UNB 5 semestre\\TEC DE PROG\\icones\\logo gama.png")); // NOI18N
-
-        jMenu1.setText("Cadastro");
-        jMenu1.setEnabled(false);
-
-        jMenuSala.setText("Sala");
-        jMenuSala.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuSalaMouseClicked(evt);
-            }
-        });
-        jMenuSala.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuSalaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuSala);
-
-        jMenuLaboratorio.setText("Laboratórios");
-        jMenuLaboratorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuLaboratorioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuLaboratorio);
-
-        jMenuEquipamento.setText("Equipamento");
-        jMenuEquipamento.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuEquipamentoMouseClicked(evt);
-            }
-        });
-        jMenuEquipamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuEquipamentoActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuEquipamento);
-
-        jMenuCadUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuCadUsuarioMouseClicked(evt);
-            }
-        });
-        jMenuCadUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuCadUsuarioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuCadUsuario);
-
-        jMenuBar1.add(jMenu1);
         jMenuBar1.add(jMenu2);
 
         jMenuPesquisar.setText("Pesquisar");
@@ -165,22 +78,10 @@ public class TelaSolicitante extends javax.swing.JFrame {
         });
         jMenuPesquisar.add(jMenuPesqSala);
 
-        jMenuPesqLab.setText("Laboratório");
-        jMenuPesqLab.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuPesqLabActionPerformed(evt);
-            }
-        });
-        jMenuPesquisar.add(jMenuPesqLab);
-
         jMenuBar1.add(jMenuPesquisar);
 
         jMenu6.setText("Solicitação");
         jMenuBar1.add(jMenu6);
-
-        jMenu5.setText("Relatórios");
-        jMenu5.setEnabled(false);
-        jMenuBar1.add(jMenu5);
 
         jMenuSair.setText("Sair");
         jMenuSair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,35 +115,6 @@ public class TelaSolicitante extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuSalaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalaMouseClicked
-        new CadastroDeSala().show();
-}//GEN-LAST:event_jMenuSalaMouseClicked
-
-    private void jMenuSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalaActionPerformed
-        new CadastroDeSala().show();
-}//GEN-LAST:event_jMenuSalaActionPerformed
-
-    private void jMenuLaboratorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuLaboratorioActionPerformed
-        new CadastroDeLaboratório().show();
-}//GEN-LAST:event_jMenuLaboratorioActionPerformed
-
-    private void jMenuEquipamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuEquipamentoMouseClicked
-        new CadastroDeEquipamento().setVisible(true);
-}//GEN-LAST:event_jMenuEquipamentoMouseClicked
-
-    private void jMenuEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuEquipamentoActionPerformed
-        new CadastroDeEquipamento().show();
-}//GEN-LAST:event_jMenuEquipamentoActionPerformed
-
-    private void jMenuCadUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCadUsuarioMouseClicked
-
-        new CadastroDeSolicitante().show();
-}//GEN-LAST:event_jMenuCadUsuarioMouseClicked
-
-    private void jMenuCadUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCadUsuarioActionPerformed
-        new CadastroDeSolicitante().show();
-}//GEN-LAST:event_jMenuCadUsuarioActionPerformed
-
     private void jMenuSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSairMouseClicked
         System.exit(0);
 }//GEN-LAST:event_jMenuSairMouseClicked
@@ -251,25 +123,13 @@ public class TelaSolicitante extends javax.swing.JFrame {
         new PesquisaSala().show();
 }//GEN-LAST:event_jBCSalaActionPerformed
 
-    private void jBCLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCLabActionPerformed
-        new PesquisaLaboratorio().show();
-    }//GEN-LAST:event_jBCLabActionPerformed
-
     private void jBCancelSolicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelSolicActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBCancelSolicActionPerformed
 
-    private void jBCancelSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelSalaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBCancelSalaActionPerformed
-
     private void jMenuPesqSalaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPesqSalaActionPerformed
         new PesquisaSala().show();
     }//GEN-LAST:event_jMenuPesqSalaActionPerformed
-
-    private void jMenuPesqLabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuPesqLabActionPerformed
-        new PesquisaLaboratorio().show();
-    }//GEN-LAST:event_jMenuPesqLabActionPerformed
 
     /**
     * @param args the command line arguments
@@ -283,24 +143,15 @@ public class TelaSolicitante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBCLab;
     private javax.swing.JButton jBCSala;
-    private javax.swing.JButton jBCancelSala;
     private javax.swing.JButton jBCancelSolic;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuCadUsuario;
-    private javax.swing.JMenuItem jMenuEquipamento;
-    private javax.swing.JMenuItem jMenuLaboratorio;
-    private javax.swing.JMenuItem jMenuPesqLab;
     private javax.swing.JMenuItem jMenuPesqSala;
     private javax.swing.JMenu jMenuPesquisar;
     private javax.swing.JMenu jMenuSair;
-    private javax.swing.JMenuItem jMenuSala;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 

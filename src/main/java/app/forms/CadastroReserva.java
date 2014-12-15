@@ -46,9 +46,7 @@ public class CadastroReserva extends javax.swing.JFrame {
         jTData = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jTIdSala = new javax.swing.JTextField();
-        jTIdUser = new javax.swing.JTextField();
         jCHoraIni = new javax.swing.JComboBox();
         jCHoraFim = new javax.swing.JComboBox();
         jBSalvar = new javax.swing.JButton();
@@ -95,9 +93,7 @@ public class CadastroReserva extends javax.swing.JFrame {
 
         jLabel4.setText("Data:");
 
-        jLabel1.setText("Id Sala:");
-
-        jLabel5.setText("Matricula Usuário:");
+        jLabel1.setText("Sala");
 
         jCHoraIni.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23" }));
 
@@ -127,11 +123,7 @@ public class CadastroReserva extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTIdSala, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTIdSala, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -140,7 +132,7 @@ public class CadastroReserva extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCHoraFim, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
+                        .addGap(13, 13, 13))
                     .addComponent(jBSalvar)))
         );
         jPanel1Layout.setVerticalGroup(
@@ -151,9 +143,7 @@ public class CadastroReserva extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
-                            .addComponent(jTIdSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTIdUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTIdSala, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
@@ -174,7 +164,7 @@ public class CadastroReserva extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, Short.MAX_VALUE)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -190,7 +180,7 @@ public class CadastroReserva extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
-       verificaDados();
+//       verificaDados();
         try {
             cadastro();
         } catch (ParseException ex) {
@@ -235,69 +225,54 @@ public class CadastroReserva extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTData;
     private javax.swing.JTextField jTIdSala;
-    private javax.swing.JTextField jTIdUser;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 
     public void cadastro() throws ParseException {
 
-        try {
-            Reserva res = new Reserva();
-
-            String formato = "yyyy-MM-dd";
-            SimpleDateFormat EUA = new SimpleDateFormat("yyyy-MM-dd");
-            SimpleDateFormat BRA = new SimpleDateFormat("dd-MM-yyyy");
-            String data = EUA.format(BRA.parse(jTData.getText()));
-       
-            String horaIni = jCHoraIni.getSelectedItem().toString();
-            String horaFim = jCHoraFim.getSelectedItem().toString();
-            int horaI = Integer.parseInt(horaIni);
-            int horaF = Integer.parseInt(horaFim);
-
-
-            if (horaI < horaF) {
-            res.setData(data);
-            res.setIdSala(Integer.parseInt(jTIdSala.getText()));
-            res.setMatSolic(Integer.parseInt(jTIdUser.getText()));
-
-                if (horaI < 10) {
-                    String hora = ("0" + horaI + ":00:00");
-
-                    res.setHoraIni(hora);
-                    System.out.println(" " + hora);
-                } else {
-                    String hora = (horaI + ":00:00");
-                    res.setHoraFim(hora);
-                    System.out.println(" " + hora);
-                }
-                if (horaF < 10) {
-                    String hora = ("0" + horaFim + ":00:00");
-                    res.setHoraIni(hora);
-                    System.out.println(" " + hora);
-
-                } else {
-                    String hora = (horaFim + ":00:00");
-                    res.setHoraFim(hora);
-                    System.out.println(" " + hora);
-                }
-
+        String formato = "yyyy-MM-dd";
+        SimpleDateFormat EUA = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat BRA = new SimpleDateFormat("dd-MM-yyyy");
+        String data = EUA.format(BRA.parse(jTData.getText()));
+        String horaIni = jCHoraIni.getSelectedItem().toString();
+        String horaFim = jCHoraFim.getSelectedItem().toString();
+        int horaI = Integer.parseInt(horaIni);
+        int horaF = Integer.parseInt(horaFim);
+        if (horaI < horaF) {
+            //res.setData(data);
+            //res.setIdSala(Integer.parseInt(jTIdSala.getText()));
+            //res.setMatSolic(Integer.parseInt(jTIdUser.getText()));
+            
+            if (horaI < 10) {
+                String hora = ("0" + horaI + ":00:00");
+                
+                //res.setHoraIni(hora);
+                System.out.println(" " + hora);
             } else {
-                JOptionPane.showMessageDialog(null, "A hora de inicio não pode ser menor que a hora final!");
+                String hora = (horaI + ":00:00");
+                //res.setHoraFim(hora);
+                System.out.println(" " + hora);
             }
-
-            ReservaDAO dao = new ReservaDAO();
-            dao.adiciona(res);
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "problemas no cadastro!!" + ex);
+            if (horaF < 10) {
+                String hora = ("0" + horaFim + ":00:00");
+                //res.setHoraIni(hora);
+                System.out.println(" " + hora);
+                
+            } else {
+                String hora = (horaFim + ":00:00");
+                //res.setHoraFim(hora);
+                System.out.println(" " + hora);
+            }
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "A hora de inicio não pode ser menor que a hora final!");
         }
     }
-
+/**
     public boolean verificaDados() {
 
         if (!jTData.getText().equals("") && !jTIdSala.getText().equals("") && !jTIdUser.getText().equals("")) {
@@ -308,5 +283,5 @@ public class CadastroReserva extends javax.swing.JFrame {
         }
 
 
-    } 
+    } */
 }

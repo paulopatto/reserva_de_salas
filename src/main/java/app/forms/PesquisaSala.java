@@ -3,6 +3,8 @@ package app.forms;
 import app.model.Room;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -10,7 +12,10 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
-
+/**
+ * 
+ * @author Guest
+ */
 public class PesquisaSala extends javax.swing.JFrame {
 
     List<Room> rooms;
@@ -35,13 +40,9 @@ public class PesquisaSala extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jCSituacao = new javax.swing.JComboBox();
-        jCTipo = new javax.swing.JComboBox();
-        jLabel2 = new javax.swing.JLabel();
         jBTodasSalas = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTPesquisaID = new javax.swing.JTextField();
+        jTPesquisaNome = new javax.swing.JTextField();
         jBPesquisar = new javax.swing.JButton();
         jBVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -52,24 +53,6 @@ public class PesquisaSala extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selecione um tipo de Pesquisa: ", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabel1.setText("Pesquisar por Situação : ");
-
-        jCSituacao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Salas Disponíveis", "Salas Alugadas" }));
-        jCSituacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCSituacaoActionPerformed(evt);
-            }
-        });
-
-        jCTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sala de aula", "Auditório", "Sala de reunião" }));
-        jCTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCTipoActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("Pesquisar por tipo: ");
-
         jBTodasSalas.setText("Mostrar todas Salas!");
         jBTodasSalas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +60,7 @@ public class PesquisaSala extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Pesquisar por ID: ");
+        jLabel3.setText("Pesquisar por nome: ");
 
         jBPesquisar.setText("Pesquisar");
         jBPesquisar.addActionListener(new java.awt.event.ActionListener() {
@@ -98,47 +81,35 @@ public class PesquisaSala extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCSituacao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTPesquisaID, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBPesquisar)))
-                .addGap(28, 28, 28)
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jBTodasSalas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                        .addComponent(jBVoltar))
+                        .addGap(6, 6, 6)
+                        .addComponent(jBTodasSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBVoltar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCTipo, 0, 130, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jTPesquisaNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBPesquisar)
+                        .addGap(17, 17, 17))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jCSituacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jCTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jBPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBTodasSalas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jBPesquisar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jTPesquisaID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jBVoltar)))
+                        .addComponent(jTPesquisaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBTodasSalas)
+                    .addComponent(jBVoltar))
                 .addContainerGap())
         );
 
@@ -159,48 +130,18 @@ public class PesquisaSala extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 677, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jCSituacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCSituacaoActionPerformed
-
-        if(jCSituacao.getSelectedItem().equals("Salas Disponíveis")){
-            try {
-
-                ListarSalasDiponiveis();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "problemas no campo pesquisa" + ex);
-            }
-        }
-        if(jCSituacao.getSelectedItem().equals("Salas Alugadas")){
-            try {
-                ListarSalasAlugadas();
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "problemas no campo pesquisa" + ex);
-            }
-        }
-}//GEN-LAST:event_jCSituacaoActionPerformed
-
-    private void jCTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCTipoActionPerformed
-
-        try {
-
-            ListarSalaSituacao();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "problemas no campo pesquisa" + ex);
-        }
-
-    }//GEN-LAST:event_jCTipoActionPerformed
 
     private void jBTodasSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBTodasSalasActionPerformed
         try { listAllRooms(); } 
@@ -211,10 +152,9 @@ public class PesquisaSala extends javax.swing.JFrame {
 
     private void jBPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisarActionPerformed
         try {
-
-            ListarSalaID();
+            listByName();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "problemas no campo pesquisa" + ex);
+            Logger.getLogger(PesquisaSala.class.getName()).log(Level.SEVERE, null, ex);
         }
 }//GEN-LAST:event_jBPesquisarActionPerformed
 
@@ -235,23 +175,19 @@ public class PesquisaSala extends javax.swing.JFrame {
     private javax.swing.JButton jBPesquisar;
     private javax.swing.JButton jBTodasSalas;
     private javax.swing.JButton jBVoltar;
-    private javax.swing.JComboBox jCSituacao;
-    private javax.swing.JComboBox jCTipo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTPesquisaID;
+    private javax.swing.JTextField jTPesquisaNome;
     private javax.swing.JTable jTTabela;
     // End of variables declaration//GEN-END:variables
 
-    public void listById() throws SQLException {
+    public void listByName() throws SQLException {
 
-        if (jTPesquisaID.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "digite um ID de uma Sala para pesquisar");
+        if (jTPesquisaNome.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "digite um nome de uma Sala para pesquisar");
         } else {
-            rooms = Room.findById(Integer.parseInt(jTPesquisaID.getText()));
+            rooms = Room.findByName(jTPesquisaNome.getText());
             mostraPesquisa(rooms);
         }
     }
@@ -260,43 +196,7 @@ public class PesquisaSala extends javax.swing.JFrame {
         rooms = Room.all();
         mostraPesquisa(rooms);
     }
-
-    public void ListarSalasDiponiveis() throws SQLException {
-        PesquisaDAO dao = new PesquisaDAO();
-        salas = dao.getListaSalaDisponivel();
-        mostraPesquisa(salas);
-
-    }
-    /*
-    public void ListarSalasAlugadas() throws SQLException {
-        PesquisaDAO dao = new PesquisaDAO();
-        salas = dao.getListaSalaAlugada();
-        mostraPesquisa(salas);
-
-    }
-    */
-    
-    /*
-    public void ListarSalaSituacao() throws SQLException{
-
-        if(jCTipo.getSelectedItem().equals("Sala de aula")){
-            PesquisaDAO dao = new PesquisaDAO();
-            salas = dao.getListaSalaAula();
-            mostraPesquisa(salas);
-        }
-        if(jCTipo.getSelectedItem().equals("Auditório")){
-            PesquisaDAO dao = new PesquisaDAO();
-            salas = dao.getListaSalaAud();
-            mostraPesquisa(salas);
-        }
-        if(jCTipo.getSelectedItem().equals("Sala de reunião")){
-            PesquisaDAO dao = new PesquisaDAO();
-            salas = dao.getListaSalaReuniao();
-            mostraPesquisa(salas);
-        }
-        
-    }
-    */
+   
     /// TODO: refatoorar
     private void mostraPesquisa(List<Room> salas) {
 
